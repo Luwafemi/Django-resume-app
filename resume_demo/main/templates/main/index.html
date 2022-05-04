@@ -42,8 +42,8 @@ Start Content
         </div>
         <div class="col-md">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> a {{me.userprofile.title}} </br></h1>
-            <p>{{me.userprofile.bio}}</p>
+            <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> a {{me.userprofile.title}}. </br></h1>
+            <p>{{me.userprofile.bio|safe}}</p>
             <div class="bannerBtnCol">
               <div class="row">
                 <div class="col-auto">
@@ -66,40 +66,30 @@ Start Content
     <div class="container">
       <div class="row">
         <div class="col-md-auto">
-          <div class="keySkillCol">
-            <h4 class="smTitle pb-3">Key Skills</h4>
+           <div class="keySkillCol">
+            <h4 class="smTitle pb-3" style="font-weight:600">Key Skills</h4>
             {% for sk in me.userprofile.skills.all %}
             {% if sk.is_key_skill %}
             <div class="keySkillCard">
               {% if sk.image %}
               <div class="ksIconCol">
-                <img src="{{sk.image.url}}" alt="...">
+                <img src="{{sk.image.url}}" alt="..." style="width: 3em;">
               </div>
               {% endif %}
-              <span class="ksText">{{sk.name}}</span>
+              <span class="ksText">#{{sk.name}}</span>
             </div>
             {% endif %}
             {% endfor %}
           </div>
         </div>
         <div class="col-md">
-          <h4 class="smTitle pb-3">Coding Skills</h4>
-          <div class="progressCol">
-            <div class="progressCard">
+          <h4 class="smTitle pb-3" style="font-weight:600">Coding Skills</h4>
+          <div>
+            <div style ="display: grid;grid-template-columns: repeat(3,120px);grid-gap: 20px;">
               {% for sk in me.userprofile.skills.all %}
-              {% if sk.is_key_skill %}
-              <div class="progressCol">
-                <span class="progressLbl">{{sk.name}}</span>
-                <div class="row g-2 align-items-center">
-                  <div class="col">
-                    <div class="progress progressStyle">
-                      <div class="progress-bar" role="progressbar" style="width: {{sk.score}}%" aria-valuenow="{{sk.score}}" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                    <span class="pLbl">{{sk.score}}%</span>
-                  </div>
-                </div>
+              {% if sk.is_key_skill == False %}
+              <div style=" border:2px solid white; box-shadow: 3px 7px 5px #0000006b; text-align:center">
+               • {{sk.name}}
               </div>
               {% endif %}
               {% endfor %}
@@ -112,7 +102,7 @@ Start Content
   </div>
 </section>
 
-<section>
+{% comment %} <section>
   <div class="sectionSpaceSm lightBg">
     <div class="container">
       <div class="row pb-3">
@@ -125,7 +115,6 @@ Start Content
         <div class="swiper certificatesSlider">
           <div class="swiper-wrapper">
             {% for c in certificates %}
-            {% if c.is_active %}
             <div class="swiper-slide">
               <div class="cardStyle1">
                 <h4 class="mdTitle cs1Title">
@@ -138,7 +127,6 @@ Start Content
                 <p>{{c.description}}</p>
               </div>
             </div>
-            {% endif %}
             {% endfor %}
             
           </div>
@@ -149,7 +137,7 @@ Start Content
       </div>
     </div>
   </div>
-</section>
+</section> {% endcomment %}
 
 <section>
   <div class="sectionSpace">
@@ -157,14 +145,13 @@ Start Content
       <div class="portfolioCol">
         <div class="row pb-3">
           <div class="col">
-            <h4 class="smText regular">Featured Work</h4>
+            <h4 class="smText regular" style="font-weight:500">Featured Work</h4>
           </div>
           <div class="col-auto">
             <a href="{% url 'main:portfolios' %}" class="simpleLink">View all</a>
           </div>
         </div>
         {% for p in portfolio %}
-        {% if p.is_active %}
         <div class="portfolioCard">
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
@@ -183,23 +170,21 @@ Start Content
             </div>
           </div>
         </div>
-        {% endif %}
         {% endfor %}
         
       </div>
-      <div class="testimonialCol">
+      {% comment %} <div class="testimonialCol">
         <h4 class="smText regular d-block">Testimonials</h4>
         <div class="testimonialSlider">
           <div class="swiper testimonialSwiper">
             <div class="swiper-wrapper">
               {% for t in testimonials %}
-              {% if t.is_active %}
               <div class="swiper-slide">
                 <div class="testimonialCard">
                   <div class="row align-items-center">
                     <div class="col-sm-auto">
                       <div class="tImgCol">
-                        <img src="{{t.thumbnail.url}}" alt="...">
+                        <img src="{{t.thumbnail.url}}" alt="thumbnail">
                       </div>
                     </div>
                     <div class="col-sm">
@@ -211,13 +196,12 @@ Start Content
                   </div>
                 </div>
               </div>
-              {% endif %}
               {% endfor %}
 
             </div>
             <div class="test-swiper-button-next swiper-button-next swiperBtnStyle"></div>
             <div class="test-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
-          </div>
+          </div> {% endcomment %}
 
 
         </div>
@@ -226,7 +210,7 @@ Start Content
   </div>
 </section>
 
-<section>
+{% comment %} <section>
   <div class="sectionSpaceSm lightBg">
     <div class="container">
       <div class="row pb-3">
@@ -239,7 +223,6 @@ Start Content
       </div>
       <div class="row g-3">
       {% for b in blogs %}
-      {% if b.is_active %}
         <div class="col-lg-6">
           <div class="cardStyle1">
             <h4 class="mdTitle cs1Title"><a href="{% url 'main:blog' slug=b.slug %}">{{b.name}}</a></h4>
@@ -250,13 +233,12 @@ Start Content
             <p>{{b.description}}</p>
           </div>
         </div>
-        {% endif %}
         {% endfor %}
 
       </div>
     </div>
   </div>
-</section>
+</section> {% endcomment %}
 {% endblock %}
 <!-- ================================
 End Content

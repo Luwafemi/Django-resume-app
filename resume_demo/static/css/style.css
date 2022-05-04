@@ -482,6 +482,10 @@ body.navToggleActive {
 .copyrightCol p {
 	margin: 0;
 }
+.socials {
+  font-size: 30px;
+  color: #21243d;
+}
 
 
 /* portfolio page */
