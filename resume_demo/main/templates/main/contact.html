@@ -32,12 +32,12 @@ Start Content
 ================================= -->
 {% block content %}
 <section>
-  <div class="innerPageBannerCol">
+  <div style="padding: 90px 0 40px;">
     <div class="container">
       <div class="row g-4 g-md-3  align-items-center">
         <div class="col-md-6">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-md-3">Contact us below</h1>
+            <h1 class="xlTitle pb-md-3">Hello! Kindly leave a message.</h1>
           </div>
         </div>
       </div>
@@ -47,7 +47,7 @@ Start Content
 
 <section>
   <div class="lightBg">
-    <div class="container">
+    <div class="container" style ="padding:50px">
         <form id="contactForm" method="POST" action="/contact/">
         {% csrf_token %}
             <label for="name">Name</label>
