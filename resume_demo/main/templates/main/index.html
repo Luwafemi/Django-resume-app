@@ -88,7 +88,7 @@ Start Content
             <div style ="display: grid;grid-template-columns: repeat(3,120px);grid-gap: 20px;">
               {% for sk in me.userprofile.skills.all %}
               {% if sk.is_key_skill == False %}
-              <div style=" border:2px solid white; box-shadow: 3px 7px 5px #0000006b; text-align:center">
+              <div class="codingSkills">
                • {{sk.name}}
               </div>
               {% endif %}
@@ -156,7 +156,7 @@ Start Content
           <div class="row g-4 align-items-center">
             <div class="col-md-auto">
               <div class="portfolioImgCol">
-                <a href="{% url 'main:portfolio' slug=p.slug %}"><img src="{{p.image.url}}" alt="..."></a>
+                <a href="{% url 'main:portfolio' slug=p.slug %}"><img src="{{p.image.url}}" alt="image"></a>
               </div>
             </div>
             <div class="col-md">
@@ -165,7 +165,7 @@ Start Content
                 <ul class="portfolioOption">
                   <li><span class="dateLbl">{{p.date.year}}</span></li>
                 </ul>
-                <p>{{p.description}}</p>
+                {% comment %} <p>{{p.description}}</p> {% endcomment %}
               </div>
             </div>
           </div>

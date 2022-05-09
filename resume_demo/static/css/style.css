@@ -450,9 +450,14 @@ a, .btn {
   padding: 0 40px;
 }
 
-
 body.navToggleActive {
 	overflow: hidden;
+}
+.codingSkills {
+  border:2px solid white;
+  box-shadow: -1px 1px 15px inset;
+  text-align:center;
+  border-radius: 4px;
 }
 
 

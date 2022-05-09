@@ -11,7 +11,9 @@ from .models import (
 from django.views import generic
 
 
-from . forms import ContactForm
+from . forms import ContactForm\
+	
+from django.http import JsonResponse
 
 
 class IndexView(generic.TemplateView):
@@ -41,6 +43,9 @@ class ContactView(generic.FormView):
 		form.save()
 		messages.success(self.request, 'Thank you. We will be in touch soon.')
 		return super().form_valid(form)
+	def form_invalid(self, form):	
+		return JsonResponse(form.errors, status=400)
+
 
 
 class PortfolioView(generic.ListView):
