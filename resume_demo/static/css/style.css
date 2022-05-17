@@ -783,3 +783,8 @@ input[type=text], input[type=email], select, textarea {
   margin-bottom: 16px;
   resize: vertical
 }
+
+/* contact form */
+.errorlist, .nonfield{
+ color: red;
+}

@@ -49,21 +49,8 @@ Start Content
   <div class="lightBg">
     <div class="container" style ="padding:50px">
         <form id="contactForm" method="POST" action="/contact/">
-        {% csrf_token %}
-           {{ form.non_field_errors }}
-           
-            <label for="name">Name</label>
-            <span style = 'color:red'>{{form.name.errors}}</span>
-            {{form.name}}
-
-            <label for="email">Email</label>
-            <span style = 'color:red'>{{form.email.errors}}</span>
-            {{form.email}}
-
-            <label for="subject">Message</label>
-            <span style = 'color:red'>{{form.message.errors}}</span>
-            {{form.message}}
-
+            {% csrf_token %}
+            {{form}}
             <input class='btn btnPrimary' type="submit" value="Submit">
         </form>
     </div>
