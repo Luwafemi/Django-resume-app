@@ -16,6 +16,7 @@ pillow = "==9.1.0"
 sqlparse = "==0.4.2"
 tzdata = "==2022.1"
 whitenoise = "==6.1.0"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.9"
