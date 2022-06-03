@@ -18,7 +18,6 @@ class ContactForm(forms.ModelForm):
 			'rows': 6,
 			}))
 
-
 	class Meta:
 		model = ContactProfile
-		fields = ('name', 'email', 'message',)
+		fields = ('name', 'email', 'message',)		
