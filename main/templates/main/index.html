@@ -83,9 +83,9 @@ Start Content
           </div>
         </div>
         <div class="col-md">
-          <h4 class="smTitle pb-3" style="font-weight:600">Coding Skills</h4>
+          <h4 class="smTitle pb-3 codingSkillsSection" style="font-weight:600;">Coding Skills</h4>
           <div>
-            <div style ="display: grid;grid-template-columns: repeat(3,120px);grid-gap: 20px;">
+            <div class = "codingSkillsGrid" style ="display: grid;grid-template-columns: repeat(3,120px);grid-gap: 20px;">
               {% for sk in me.userprofile.skills.all %}
               {% if sk.is_key_skill == False %}
               <div class="codingSkills">

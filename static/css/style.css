@@ -719,6 +719,18 @@ body.navToggleActive {
   .fixedHeader .headerCol,  .headerCol {
   	padding: 10px 0;
   }
+  .codingSkillsSection{
+    margin-top: 50px
+  }
+  .codingSkillsGrid{
+    grid-template-columns: repeat(2,120px) !important
+  }
+  body{
+    padding: 5px;
+  }
+  .socials {
+    font-size: 23px;
+  }
 }
 
 @media(max-width:575px) {
