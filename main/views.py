@@ -43,7 +43,7 @@ class ContactView(generic.FormView):
 class PortfolioView(generic.ListView):
 	model = Portfolio
 	template_name = "main/portfolio.html"
-	paginate_by = 10
+	# paginate_by = 10
 
 	def get_queryset(self):
 		return super().get_queryset().filter(is_active=True)
@@ -56,7 +56,7 @@ class PortfolioDetailView(generic.DetailView):
 class BlogView(generic.ListView):
 	model = Blog
 	template_name = "main/blog.html"
-	paginate_by = 10
+	# paginate_by = 10
 	
 	def get_queryset(self):
 		return super().get_queryset().filter(is_active=True)
