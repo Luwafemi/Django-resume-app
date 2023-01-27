@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-t4$zofz30)jkixamitbh9=l(svrww!vdbt*zo!5@y)6t50a=ix
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'luwafemi.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'luwafemi.herokuapp.com', 'luwafemi.up.railway.app']
 
 
 # Application definition
